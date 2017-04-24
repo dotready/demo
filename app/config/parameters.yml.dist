@@ -1,0 +1,57 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # payments
+    payment_provider:   Mollie
+    payment_api_key:    ~
+
+    # date in relative format
+    # see: http://php.net/manual/en/datetime.formats.relative.php
+    credit_expiration_diff: ~
+    notify_expiration_diff: ~
+
+    mailer_transport:     ~
+    mailer_port:          ~
+    mailer_host:          ~
+    mailer_username:      ~
+    mailer_password:      ~
+    mailer_encryption:    ~
+    mailer_sender_name:   ~
+    mailer_sender_address: ~
+    mailer_dev_address: ~
+
+    mailer_lite_apikey: ~
+    mailer_lite_from_address: ~
+    mailer_lite_from_name: ~
+    mailer_lite_language: ~
+
+    image_raw_directory: ~
+    image_cache_directory: ~
+
+    memory_image_directory: ~
+    memory_max_card_pairs: 6
+
+    redis_scheme: tcp
+    redis_host: 127.0.0.1
+    redis_port: 6379
+    redis_pwd: ~
+
+    game_api_progress_url: ~
+
+    max_payment_config:
+        young_adult_min_age: ~
+        young_adult_max_age: ~
+        max_buy_young_adult: ~
+        max_buy_adult: ~

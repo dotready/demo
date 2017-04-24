@@ -1,0 +1,2 @@
+demo:
+  resource: "@DemoBundle/Resources/config/routing/demo.yml"

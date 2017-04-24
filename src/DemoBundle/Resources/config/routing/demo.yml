@@ -1,0 +1,4 @@
+frontpage:
+    path: /
+    defaults: { _controller: DemoBundle:Default:index }
+    condition: "context.getMethod() in ['GET']"

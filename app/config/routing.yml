@@ -1,0 +1,5 @@
+app:
+    resource: "@DemoBundle/Resources/config/routing.yml"
+
+game:
+    resource: "@GameBundle/Resources/config/routing.yml"

@@ -1,0 +1,6 @@
+user:
+    resource: "@DemoBundle/Resources/config/validation/user.yml"
+
+token:
+    resource: "@DemoBundle/Resources/config/validation/token.yml"
+

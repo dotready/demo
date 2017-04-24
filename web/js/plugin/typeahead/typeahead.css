@@ -1,0 +1,13 @@
+#typeAheadList {
+    margin-top: 2px;
+    list-style-type: none;
+    padding: 0px;
+    display: none;
+    position: relative;
+    border: solid 1px #999
+}
+#typeAheadList li {
+    padding: 6px;
+    text-align: left;
+    margin-left: 0px;
+}

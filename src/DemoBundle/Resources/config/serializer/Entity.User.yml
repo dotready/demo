@@ -1,0 +1,38 @@
+DemoBundle\Entity\User:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: string
+        username:
+            expose: true
+            type: string
+        firstname:
+            expose: true
+            type: string
+        lastname:
+            expose: true
+            type: string
+        credits:
+            expose: true
+            type: integer
+        email:
+            expose: true
+            type: string
+        phone:
+            expose: true
+            type: string
+        role:
+            expose: true
+            type: string
+        confirmed:
+            expose: true
+            type: string
+        created:
+            expose: true
+            serialized_name: created
+            type: DateTime<'Y-m-d H:i:s'>
+        dateOfBirth:
+            expose: true
+            serialized_name: dateOfBirth
+            type: DateTime<'Y-m-d'>

@@ -1,0 +1,26 @@
+DemoBundle\Entity\Token:
+    type: entity
+    table: token
+    id:
+        id:
+            type: guid
+            generator: { strategy: UUID }
+    fields:
+        userId:
+            type: string
+            length: 100
+            column: user_id
+        token:
+            type: string
+            length: 80
+        type:
+            type: string
+            length: 80
+        created:
+            type: datetime
+    lifecycleCallbacks:
+        prePersist: [ lifecyclePreCreateDate, lifecyclePreGenerateToken ]
+        postPersist: [  ]
+    uniqueConstraints:
+        user_type_idx:
+            columns: [user_id, token]

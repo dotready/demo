@@ -1,0 +1,19 @@
+DemoBundle\Entity\Token:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: string
+        userId:
+            expose: true
+            type: string
+            serialized_name: userId
+        token:
+            expose: true
+            type: string
+        type:
+            expose: true
+            type: string
+        created:
+            expose: true
+            type: DateTime<'Y-m-d H:i:s'>

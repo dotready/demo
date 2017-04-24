@@ -1,0 +1,16 @@
+DemoBundle\Entity\Token:
+    properties:
+        userId:
+            - NotBlank: ~
+            - Length:
+                min: 4
+                max: 80
+        token:
+            - Length:
+                min: 2
+                max: 80
+        type:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 80

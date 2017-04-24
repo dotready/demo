@@ -1,0 +1,43 @@
+DemoBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: guid
+            generator: { strategy: UUID }
+    fields:
+        username:
+            type: string
+            length: 80
+        firstname:
+            type: string
+            length: 80
+        lastname:
+            type: string
+            length: 80
+        email:
+            type: string
+            length: 180
+            unique: true
+        role:
+            type: string
+            length: 10
+        password:
+            type: string
+            length: 60
+        credits:
+            length: 4
+            type: integer
+        confirmed:
+            type: boolean
+        created:
+            type: datetime
+        dateOfBirth:
+            type: datetime
+            column: date_of_birth
+    lifecycleCallbacks:
+        prePersist: [ setCreatedDate, createPassword, lifeCyclePreCredits, lifeCyclePreRole ]
+        postPersist: [  ]
+    uniqueConstraints:
+        email_idx:
+            columns: email

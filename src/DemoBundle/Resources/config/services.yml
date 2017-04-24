@@ -1,0 +1,22 @@
+services:
+    user.repository:
+        class: DemoBundle\Repository\UserRepository
+        arguments:
+            - '@doctrine.orm.entity_manager'
+    user.service:
+        class: DemoBundle\Service\UserService
+        arguments:
+          - '@user.repository'
+          - '@request_stack'
+          - '@session.service'
+
+    token.repository:
+        class: DemoBundle\Repository\TokenRepository
+        arguments:
+            - '@doctrine.orm.entity_manager'
+    token.service:
+        class: DemoBundle\Service\TokenService
+        arguments:
+          - '@token.repository'
+          - '@jms_serializer'
+          - '@validator'

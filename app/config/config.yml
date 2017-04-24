@@ -1,0 +1,95 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@DemoBundle/Resources/config/services.yml" }
+    - { resource: "@GameBundle/Resources/config/services.yml" }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: nl
+
+framework:
+    esi: { enabled: true }
+    translator:
+        fallbacks:
+          - 'nl'
+        paths:
+          - '%kernel.root_dir%/Resources/translations'
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  ~
+        #save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    cache: false
+    globals:
+        user_service: "@user.service"
+        game_session_service: "@game.session.service"
+        image_processor: "@app.image.processor"
+        cookie_service: "@cookie.service"
+
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+
+    orm:
+        default_entity_manager: default
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    Demo:
+                        prefix: DemoBundle\Entity
+                        type:   yml
+                        dir:    '%kernel.root_dir%/../src/DemoBundle/Resources/config/doctrine'
+                        is_bundle: false
+                    Game:
+                        prefix: GameBundle\Entity
+                        type:   yml
+                        dir:    '%kernel.root_dir%/../src/GameBundle/Resources/config/doctrine'
+                        is_bundle: false
+
+jms_serializer:
+    metadata:
+        directories:
+           DemoBundle:
+                namespace_prefix: "DemoBundle"
+                path: "@DemoBundle/Resources/config/serializer/"
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    port:      "%mailer_port%"
+    encryption: "%mailer_encryption%"
+    username:  "%mailer_username%"
+    password:  "%mailer_password%"
+    timeout: 5
